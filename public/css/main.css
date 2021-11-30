@@ -1,0 +1,9 @@
+/* Open/close navigation dropdowns on hover instead of on click */
+@media only screen and (any-hover: hover) {
+    details.dropdown > summary + ol {
+        display: none;
+    }
+    details.dropdown:hover > summary + ol {
+        display: block;
+    }
+}

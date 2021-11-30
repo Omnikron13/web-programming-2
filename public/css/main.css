@@ -1,3 +1,8 @@
+/* Dropdowns open over content rather than displacing */
+details.dropdown > summary + * {
+    position: absolute;
+}
+
 /* Open/close navigation dropdowns on hover instead of on click */
 @media only screen and (any-hover: hover) {
     details.dropdown > summary + * {

@@ -8,7 +8,8 @@ details.dropdown > summary + * {
     details.dropdown > summary + * {
         display: none;
     }
-    details.dropdown:hover > summary + * {
+    details.dropdown:hover > summary + *,
+    details.dropdown:focus-within > summary + * {
         display: block;
     }
 }

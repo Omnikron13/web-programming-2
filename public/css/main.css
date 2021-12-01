@@ -7,16 +7,19 @@
 .menu > li {
     display: inline-block;
     text-align: center;
+    width: 6rem;
 }
-.menu-item,
-.submenu-item {
+.menu > li > a,
+.menu > li summary {
+    display: inline-block;
+    padding: 0.5em 0;
+    text-decoration: none;
+    width: 100%;
+}
+.submenu > li > a {
     display: block;
     padding: 0.5em 1em;
     text-decoration: none;
-    width: 5rem;
-}
-.submenu-item {
-    width: auto;
 }
 
 /* Dropdowns open over content rather than displacing */

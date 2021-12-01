@@ -1,3 +1,24 @@
+/* Main Navigation menu */
+.menu,
+.submenu {
+    list-style: none;
+    padding: 0;
+}
+.menu > li {
+    display: inline-block;
+    text-align: center;
+}
+.menu-item,
+.submenu-item {
+    display: block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    width: 5rem;
+}
+.submenu-item {
+    width: auto;
+}
+
 /* Dropdowns open over content rather than displacing */
 details.dropdown > summary + * {
     position: absolute;

@@ -62,6 +62,10 @@ details.dropdown > summary + * {
 
 /* Mobile (portrait) or other narrow screen styles */
 @media screen and (max-width: 500px) {
+    /* Make the menu full width and stacked vertically */
+    .menu {
+        flex-direction: column;
+    }
     .menu > li {
         width: 100%;
     }

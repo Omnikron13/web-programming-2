@@ -44,3 +44,15 @@ details.dropdown > summary + * {
         display: block;
     }
 }
+
+/* Mobile (portrait) or other narrow screen styles */
+@media screen and (max-width: 500px) {
+    .menu > li {
+        width: 100%;
+    }
+
+    /* Dropdowns displace content down instead of opening over it */
+    details.dropdown > summary + * {
+        position: static;
+    }
+}

@@ -35,7 +35,7 @@ details.dropdown > summary + * {
 }
 
 /* Open/close navigation dropdowns on hover instead of on click */
-@media only screen and (any-hover: hover) {
+@media only screen and (any-hover: hover) and (min-width: 501px) {
     details.dropdown > summary + * {
         display: none;
     }

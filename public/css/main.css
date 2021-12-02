@@ -54,17 +54,6 @@ details.dropdown > summary + * {
     position: absolute;
 }
 
-/* Open/close navigation dropdowns on hover instead of on click */
-@media only screen and (any-hover: hover) and (min-width: 501px) {
-    details.dropdown > summary + * {
-        display: none;
-    }
-    details.dropdown:hover > summary + *,
-    details.dropdown:focus-within > summary + * {
-        display: block;
-    }
-}
-
 /* Mobile (portrait) or other narrow screen styles */
 @media screen and (max-width: 500px) {
     /* Make the menu full width and stacked vertically */

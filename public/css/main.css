@@ -16,6 +16,11 @@ h1, h2, h3, p {
     margin: 0.75rem;
 }
 
+/* Justify paragraphs by default to make pages look cleaner */
+p {
+    text-align: justify;
+}
+
 /* Main Navigation menu */
 .menu,
 .submenu {

@@ -11,6 +11,10 @@
     list-style: none;
     padding: 0;
 }
+.menu {
+    display: flex;
+    justify-content: center;
+}
 .menu > li {
     display: inline-block;
     text-align: center;

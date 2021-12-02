@@ -1,4 +1,9 @@
 // This script progressively enhances dropdown menus to open on hover instead of on click
+
+// Delays to opening/closing in ms to make the menus feel less jittery
+const MOUSE_ENTER_DELAY = 500;
+const MOUSE_LEAVE_DELAY = 750;
+
 let dropdowns = document.querySelectorAll("details.dropdown");
 
 for(n = 0; n < dropdowns.length; n++) {
@@ -11,7 +16,7 @@ for(n = 0; n < dropdowns.length; n++) {
         setTimeout(() => {
             if(event.target.isMouseOver)
                 event.target.setAttribute("open", "");
-        }, 500);
+        }, MOUSE_ENTER_DELAY);
 
         event.stopPropagation();
     });
@@ -25,7 +30,7 @@ for(n = 0; n < dropdowns.length; n++) {
         setTimeout(() => {
             if(!event.target.isMouseOver)
                 event.target.removeAttribute("open");
-        }, 750);
+        }, MOUSE_LEAVE_DELAY);
 
         event.stopPropagation();
     });

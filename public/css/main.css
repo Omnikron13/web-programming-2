@@ -32,9 +32,7 @@ body > header > h1 {
     text-align: center;
 }
 
-/* Collapsible nav menu container for mobile */
-#nav-container {
-}
+/* Collapsible nav menu container for mobile only */
 #nav-container > summary {
     display: none;
 }

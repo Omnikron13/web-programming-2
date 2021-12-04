@@ -74,6 +74,11 @@ details.dropdown > summary + * {
 
 /* Mobile (portrait) or other narrow screen styles */
 @media screen and (max-width: 500px) {
+    /* Make the nav menu collapsible */
+    #nav-container > summary {
+        display: list-item;
+    }
+
     /* Make the menu full width and stacked vertically */
     .menu {
         flex-direction: column;

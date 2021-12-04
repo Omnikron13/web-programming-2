@@ -27,6 +27,11 @@ body > header {
     top: 0.75rem; /* Has to match the margin of the top child */
 }
 
+/* This may be replaced by a graphical header/logo */
+body > header > h1 {
+    text-align: center;
+}
+
 /* Main Navigation menu */
 .menu,
 .submenu {

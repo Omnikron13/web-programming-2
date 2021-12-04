@@ -32,6 +32,13 @@ body > header > h1 {
     text-align: center;
 }
 
+/* Collapsible nav menu container for mobile */
+#nav-container {
+}
+#nav-container > summary {
+    display: none;
+}
+
 /* Main Navigation menu */
 .menu,
 .submenu {

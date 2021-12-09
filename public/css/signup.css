@@ -43,7 +43,7 @@ textarea {
         text-align: left;
     }
 
-    input {
+    input, textarea {
         margin-bottom: 0.5rem;
     }
 }

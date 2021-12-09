@@ -85,6 +85,11 @@ details.dropdown > summary + * {
     position: absolute;
 }
 
+/* Align copyright etc. */
+#footer > p {
+    text-align: centre;
+}
+
 /* Mobile (portrait) or other narrow screen styles */
 @media screen and (max-width: 500px) {
     /* Shift nav upwards so the show/hide icon sits top right */

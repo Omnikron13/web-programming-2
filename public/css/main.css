@@ -132,6 +132,10 @@ details.dropdown > summary + * {
     .menu > li {
         width: 100%;
     }
+    .submenu > li {
+        /* Reset positioning used to center on desktop */
+        position: initial;
+    }
 
     /* Dropdowns displace content down instead of opening over it */
     details.dropdown > summary + * {

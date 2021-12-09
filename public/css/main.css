@@ -35,6 +35,11 @@ p {
     grid-column: 2;
 }
 
+/* Ensure a little breathing room left & right of the page content */
+#main, #footer {
+    padding: 0.7rem;
+}
+
 /* Stick the page header to the top of the window for easy nav access */
 #header {
     position: sticky;

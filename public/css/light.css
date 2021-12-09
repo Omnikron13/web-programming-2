@@ -1,7 +1,7 @@
 :root {
     --main-bg: #AED984;
-    --main-colour: #3D5928;
-    --lighter-colour: #628E40;
+    --dark-bg: #3D5928;
+    --light-bg: #628E40;
 }
 
 body {
@@ -9,15 +9,15 @@ body {
 }
 
 header {
-    background-color: var(--main-colour);
+    background-color: var(--dark-bg);
 }
 
 header nav {
-    background-color: var(--lighter-colour);
+    background-color: var(--light-bg);
 }
 
 header nav ul > li {
-    border: 1px solid var(--main-colour);
+    border: 1px solid var(--dark-bg);
 }
 
 header nav ul > li:hover {

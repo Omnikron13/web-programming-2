@@ -22,6 +22,14 @@ header {
     border: 1px solid var(--dark-bg);
 }
 
+/* Nav button text */
+.menu a {
+    color: #D6EAC2;
+}
+.menu a:hover {
+    color: #152515;
+}
+
 /* Prevent doubling of border between buttons */
 .menu > li:nth-of-type(-n+3) {
     border-right: initial;

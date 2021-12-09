@@ -26,11 +26,12 @@ p {
 /* Stick the page header to the top of the window for easy nav access */
 body > header {
     position: sticky;
-    top: 0.75rem; /* Has to match the margin of the top child */
+    top: 0;
 }
 
 /* This may be replaced by a graphical header/logo */
 body > header > h1 {
+    margin-top: 0;
     text-align: center;
 }
 

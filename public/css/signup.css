@@ -46,4 +46,8 @@ textarea {
     input, textarea {
         margin-bottom: 0.5rem;
     }
+
+    #submit {
+        grid-column: 1;
+    }
 }

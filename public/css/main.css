@@ -17,7 +17,7 @@ body {
 
 /* Default margins for some spacing */
 h1, h2, h3, p {
-    margin: 0.75rem;
+    margin: 0.75rem 0;
 }
 
 /* Justify paragraphs by default to make pages look cleaner */

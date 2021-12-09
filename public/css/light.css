@@ -1,0 +1,25 @@
+:root {
+    --main-bg: #AED984;
+    --main-colour: #3D5928;
+    --lighter-colour: #628E40;
+}
+
+body {
+    background-color: var(--main-bg);
+}
+
+header {
+    background-color: var(--main-colour);
+}
+
+header nav {
+    background-color: var(--lighter-colour);
+}
+
+header nav ul > li {
+    border: 1px solid var(--main-colour);
+}
+
+header nav ul > li:hover {
+    backdrop-filter: brightness(1.2);
+}

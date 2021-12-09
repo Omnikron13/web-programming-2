@@ -49,3 +49,8 @@ body {
     transform: scale(1.01);
     filter: drop-shadow(0.2rem 0.2rem 0.2rem var(--dark-bg));
 }
+
+/* Footer text */
+#footer p, #footer a {
+    color: var(--light-fg);
+}

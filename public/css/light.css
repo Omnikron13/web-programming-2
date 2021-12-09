@@ -24,6 +24,7 @@ body {
 .menu > li, .submenu > li {
     background-color: var(--light-bg);
     border: 1px solid var(--dark-bg);
+    cursor: pointer;
 }
 
 /* Nav button text */

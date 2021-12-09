@@ -26,7 +26,7 @@ header {
 .menu a {
     color: #D6EAC2;
 }
-.menu a:hover {
+.menu a:hover, .dropdown:hover > summary > a {
     color: #152515;
 }
 

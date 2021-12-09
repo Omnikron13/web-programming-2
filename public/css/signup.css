@@ -1,0 +1,39 @@
+form {
+    padding: 0 2rem;
+}
+
+fieldset {
+    column-gap: 0.5rem;
+    display: grid;
+    grid-template-columns: auto minmax(5rem, 1fr);
+    margin: auto;
+    max-width: 40rem;
+    padding-bottom: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    row-gap: 0.5rem;
+}
+
+label {
+    text-align: right;
+}
+
+textarea {
+    height: 5rem;
+}
+
+/* Mobile (portrait) or other narrow screen styles */
+@media screen and (max-width: 500px) {
+    fieldset {
+        grid-template-columns: auto;
+        row-gap: 0;
+    }
+
+    label {
+        text-align: left;
+    }
+
+    input {
+        margin-bottom: 0.5rem;
+    }
+}

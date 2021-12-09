@@ -6,13 +6,11 @@
 }
 
 /* Prevent page getting too wide to comfortably read */
-#main-container {
-    /* TODO: change this so it doesn't leave blank borders when colour is added
-    max-width: 64em;
-    margin: auto;
-    */
+body {
     display: grid;
     grid-template-columns: 1fr minmax(40%, 52rem) 1fr;
+    grid-template-rows: max-content auto max-content;
+    min-height: 100vh;
 }
 
 /* Default margins for some spacing */

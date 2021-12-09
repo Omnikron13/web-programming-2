@@ -55,3 +55,12 @@ body {
 #footer p, #footer a {
     color: var(--light-fg);
 }
+
+/* Mobile (portrait) or other narrow screen styles */
+@media screen and (max-width: 500px) {
+    /* Clear menu button hovering effects */
+    .menu > li:hover, .submenu > li:hover {
+        transition: none;
+        transform: none;
+    }
+}

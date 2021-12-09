@@ -87,7 +87,7 @@ details.dropdown > summary + * {
 
 /* Align copyright etc. */
 #footer > p {
-    text-align: centre;
+    text-align: center;
 }
 
 /* Mobile (portrait) or other narrow screen styles */

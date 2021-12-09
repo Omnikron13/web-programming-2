@@ -72,6 +72,13 @@ details.dropdown > summary + * {
 
 /* Mobile (portrait) or other narrow screen styles */
 @media screen and (max-width: 500px) {
+    /* Shift nav upwards so the show/hide icon sits top right */
+    #nav-container {
+        position: relative;
+        top: -3.5rem;
+        margin-bottom: -3.5rem;
+    }
+
     /* Make the nav menu collapsible */
     #nav-container > summary {
         display: list-item;
@@ -80,7 +87,7 @@ details.dropdown > summary + * {
         list-style-type: "☰";
         font-size: 2rem;
         text-align: right;
-        padding-right: 0.5rem;
+        padding-right: 0.9rem;
     }
 
     /* Switch to close icon when menu is open */

@@ -5,10 +5,12 @@
     padding: 0;
 }
 
-/* Prevent page getting too wide to comfortably read */
 body {
+    /* Prevent page getting too wide to comfortably read */
     display: grid;
     grid-template-columns: 1fr minmax(40%, 52rem) 1fr;
+
+    /* Keep header at the bottom of the page */
     grid-template-rows: max-content auto max-content;
     min-height: 100vh;
 }

@@ -7,8 +7,10 @@
 
 /* Prevent page getting too wide to comfortably read */
 body {
+    /* TODO: change this so it doesn't leave blank borders when colour is added
     max-width: 64em;
     margin: auto;
+    */
 }
 
 /* Default margins for some spacing */

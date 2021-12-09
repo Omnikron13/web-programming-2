@@ -28,10 +28,10 @@ header {
 
 /* Nav button text */
 .menu a {
-    color: #D6EAC2;
+    color: var(--light-fg);
 }
 .menu a:hover, .dropdown:hover > summary > a {
-    color: #152515;
+    color: var(--dark-fg);
 }
 
 /* Prevent doubling of border between buttons */

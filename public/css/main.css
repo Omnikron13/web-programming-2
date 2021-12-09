@@ -11,6 +11,8 @@ body {
     max-width: 64em;
     margin: auto;
     */
+    display: grid;
+    grid-template-columns: 1fr minmax(40%, 52rem) 1fr;
 }
 
 /* Default margins for some spacing */
@@ -21,6 +23,16 @@ h1, h2, h3, p {
 /* Justify paragraphs by default to make pages look cleaner */
 p {
     text-align: justify;
+}
+
+/* Header & footer span the whole page as bars of colour */
+body > header, body > footer {
+    grid-column-end: span 3;
+}
+
+/* Main sits in the centre column */
+body > main {
+    grid-column: 2;
 }
 
 /* Stick the page header to the top of the window for easy nav access */

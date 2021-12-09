@@ -12,14 +12,28 @@ header {
     background-color: var(--dark-bg);
 }
 
-header nav {
+#header nav {
     background-color: var(--light-bg);
 }
 
-header nav ul > li {
+/* Colour navigation menu & submenu */
+.menu > li, .submenu > li {
+    background-color: var(--light-bg);
     border: 1px solid var(--dark-bg);
 }
 
-header nav ul > li:hover {
-    backdrop-filter: brightness(1.2);
+/* Prevent doubling of border between buttons */
+.menu > li:nth-of-type(-n+3) {
+    border-right: initial;
+}
+.submenu > li:nth-of-type(-n+3) {
+    border-bottom: initial;
+}
+
+/* Menu button hovering effects */
+.menu > li:hover, .submenu > li:hover {
+    background-color: var(--main-bg);
+    transition: all 0.4s ease-out;
+    transform: scale(1.01);
+    filter: drop-shadow(0.2rem 0.2rem 0.2rem var(--dark-bg));
 }

@@ -79,6 +79,11 @@ p {
     text-decoration: none;
     width: 100%;
 }
+.submenu > li {
+    left: -4rem;
+    min-width: 14rem;
+    position: relative;
+}
 .submenu > li > a {
     display: block;
     padding: 0.5em 1em;

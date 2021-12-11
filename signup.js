@@ -9,13 +9,13 @@ module.exports = {
     // Process POST requests for signup.html
     process: function(req, res) {
         // Log submission
-        console.log('Processing POST request to signup.html:');
+        console.debug('Processing POST request to signup.html:');
 
         // Remove the useless submit data from the POST
         delete req.body.submit;
 
         // Log details of submission
-        console.log(req.body);
+        console.debug(req.body);
 
         // TODO: move success out to after data saved successfully
         sendResponseFile(req, res, 'success.html');

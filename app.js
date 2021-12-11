@@ -1,7 +1,7 @@
 // Port to serve the website on
 const PORT = 3000;
 
-// Imports
+// Import modules
 const express = require('express');
 
 // Initialise express

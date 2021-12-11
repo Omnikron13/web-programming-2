@@ -9,7 +9,7 @@ const path    = require('path');
 const app = express();
 
 // Serve anything found in the public dir statically by default
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Start the server
 app.listen(PORT, (error) => {

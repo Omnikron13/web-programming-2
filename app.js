@@ -3,6 +3,7 @@ const PORT = 3000;
 
 // Import modules
 const express = require('express');
+const path    = require('path');
 
 // Initialise express
 const app = express();

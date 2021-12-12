@@ -15,8 +15,18 @@ document.querySelectorAll('#firstName, #lastName')
 var email = document.getElementById('email');
 if(email)
     email.addEventListener('change', event => {
-        // TODO: return early if it doesn't validate anyway
+        // Ignore events that have been re-fired
+        if(event.ignore)
+            return;
 
+        // Don't bother wasting the server's time if it doesn't validate anyway
+        if(email.validity.patternMismatch)
+            return;
+
+        // Hold the event so the event to report errors doesn't fire too early
+        event.stopPropagation();
+
+        // Prepare POST request to s end email to check
         var req = {
             method: 'POST',
             headers: {
@@ -27,10 +37,14 @@ if(email)
             }),
         };
 
+        // Query the server, and set validity as necessary
         fetch('duplicateEmail', req)
             .then(res => res.json())
             .then(duplicate => {
-                event.target.setCustomValidity(duplicate ? 'Email address is already signed up for updates.' : '')
+                email.setCustomValidity(duplicate ? 'Email address is already signed up for updates.' : '');
+                // Mark the event to be ignore to prevent infinite loop and re-fire
+                event.ignore = true;
+                email.dispatchEvent(event);
             });
     });
 

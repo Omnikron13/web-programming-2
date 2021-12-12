@@ -31,10 +31,20 @@ module.exports = {
     // Return list of email addresses already in the DB file, served as salted
     // hashes to preserve privacy.
     getHashes: function() {
-        var db = JSON.parse(fs.readFileSync(DB_FILE));
-        return db.map(entry => sha1(entry.email + SALT));
+        return getDB().map(entry => sha1(entry.email + SALT));
     },
 };
+
+// Read the DB file and return it in JSON format
+// TODO: move to diferent module? export?
+function getDB() {
+    // Create empty DB file if it doesn't exist
+    if(!fs.existsSync(DB_FILE))
+        fs.writeFileSync(DB_FILE, '[]');
+
+    // Read the DB file and convert to JSON
+    return JSON.parse(fs.readFileSync(DB_FILE));
+}
 
 // Sends out a full EJS template as a response
 function sendResponseFile(req, res, file) {
@@ -62,12 +72,8 @@ function saveData(req, res, data) {
         return;
     }
 
-    // Create empty DB file if it doesn't exist
-    if(!fs.existsSync(DB_FILE))
-        fs.writeFileSync(DB_FILE, '[]');
-
-    // Read the DB file and convert to JSON
-    var db = JSON.parse(fs.readFileSync(DB_FILE));
+    // Get the DB file as JSON
+    var db = getDB();
 
     // Check if email is already in DB, and send a 'failure' response if it is
     if(db.find(element => element.email == data.email)) {

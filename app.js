@@ -33,9 +33,13 @@ app.get('/*.html', (req, res) => {
     // Name of the page (without extention)
     var page = req.params[0];
 
+    // Load common resources lists
+    var cssFiles = getResources('common', 'css');
+    var scriptFiles = getResources('common', 'scripts');
+
     // Load page specific resources lists
-    var cssFiles = getResources(page, 'css');
-    var scriptFiles = getResources(page, 'scripts');
+    cssFiles = cssFiles.concat(getResources(page, 'css'));
+    scriptFiles = scriptFiles.concat(getResources(page, 'scripts'));
 
     // Render the template
     res.render('main.ejs', {

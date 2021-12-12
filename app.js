@@ -53,6 +53,12 @@ app.get('/emailhashes', (req, res) => {
     res.send(signup.getHashes());
 });
 
+// Check if an email is already in the database
+app.post('/duplicateEmail', (req, res) => {
+    console.debug('duplicateEmail:', req.body);
+    res.send(signup.duplicateEmail(req.body.email));
+});
+
 // Start the server
 app.listen(PORT, (error) => {
     // Log any errors

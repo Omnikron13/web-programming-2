@@ -33,6 +33,11 @@ module.exports = {
     getHashes: function() {
         return getDB().map(entry => sha1(entry.email + SALT));
     },
+
+    // Check if email is alreayd in DB file
+    duplicateEmail: function(email) {
+        return getDB().map(entry => entry.emailHash).includes(sha1(email.toLowerCase() + SALT));
+    },
 };
 
 // Read the DB file and return it in JSON format

@@ -13,6 +13,7 @@ const signup  = require('./signup');
 const app = express();
 
 app.use(express.urlencoded({extended:true}));
+app.use(express.json());
 
 // Render with EJS
 app.set('view engine', 'ejs');

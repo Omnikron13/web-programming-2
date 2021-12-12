@@ -11,8 +11,6 @@
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/light.css" />
     <% css.forEach(function(name) { %>
         <%- include('partials/cssTag', {name: name}) %>
     <% }); %>
@@ -36,8 +34,6 @@
         <p>In association with <a href="https://climate.nasa.gov">NASA Climate</a> &amp; <a href="https://theccc.org.uk">Commitee on Climate Change</a></p>
     </footer>
 
-    <script src="js/dropdown.js" defer></script>
-    <script src="js/resize.js" defer></script>
     <% scripts.forEach(function(name) { %>
         <%- include('partials/scriptTag', {name: name}) %>
     <% }); %>

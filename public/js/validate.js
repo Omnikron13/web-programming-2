@@ -3,14 +3,16 @@
 // 128 bit salt
 const SALT = 'PTK3syLmZx45KK7IIUHZbQ';
 
-// Trigger validation when submit is clicked
-document.getElementById('submit').addEventListener('click', event => {
-    // Trim whitespace from names (attempt to bypass required)
-    var firstName = document.getElementById("firstName");
-    var lastName = document.getElementById("lastName");
-    firstName.value = firstName.value.trim();
-    lastName.value = lastName.value.trim();
-});
+// Treat whitespace as blank for firstName & lastName
+document.querySelectorAll('#firstName, #lastName')
+    .forEach(element => {
+        element.addEventListener('change', event => {
+            if(event.target.value.trim() === '')
+                event.target.setCustomValidity('This field must not be blank.');
+            else
+                event.target.setCustomValidity('');
+        })
+    });
 
 
 // Check if email address is already in DB file

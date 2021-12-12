@@ -33,3 +33,8 @@ if(email)
                 event.target.setCustomValidity(duplicate ? 'Email address is already signed up for updates.' : '')
             });
     });
+
+// Force a validation check when any fields are changed
+document.getElementById('signup').addEventListener('change', event => {
+    event.target.reportValidity();
+});

@@ -42,7 +42,7 @@ app.get('/*.html', (req, res) => {
     scriptFiles = scriptFiles.concat(getResources(page, 'scripts'));
 
     // Load shared chapters resources lists
-    if(page.startsWith('chapters')) {
+    if(page.startsWith('chapter')) {
         cssFiles = cssFiles.concat(getResources('chapters', 'css'));
         scriptFiles = scriptFiles.concat(getResources('chapters', 'scripts'));
     }

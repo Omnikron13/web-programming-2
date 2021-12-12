@@ -39,6 +39,7 @@ function saveData(req, res, data) {
     data.email = data.email.toLowerCase();
     data.firstName = data.firstName.trim();
     data.lastName = data.lastName.trim();
+    data.comments = data.comments.trim();
 
     // Validate the data (you can never trust the client)
     if(!validate(data)) {

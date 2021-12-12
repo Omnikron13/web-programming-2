@@ -41,7 +41,11 @@ function saveData(req, res, data) {
     // Read the DB file and convert to JSON
     var db = JSON.parse(fs.readFileSync(DB_FILE));
 
-    // TODO: Check for duplicate
+    // Check if email is alreayd in DB, and send a 'failure' response if it is
+    if(db.find(element => element.email == data.email)) {
+        sendResponseFile(req, res, 'duplicate.html');
+        return;
+    }
 
     // Append the new data
     db.push(data);

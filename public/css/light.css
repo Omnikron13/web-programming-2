@@ -28,6 +28,15 @@ body {
     cursor: pointer;
 }
 
+/* Some distinction in the chade of the dropwn to make it
+ * stand out a bit better */
+.dropdown[open] {
+    background-color: var(--main-bg);
+}
+.dropdown[open] .chapters-dropdown {
+    color: var(--dark-fg);
+}
+
 /* Nav button text */
 .menu a {
     color: var(--light-fg);

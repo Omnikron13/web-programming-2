@@ -36,9 +36,15 @@ module.exports = {
     },
 };
 
-// Sends out a full static HTML file as a response
+// Sends out a full EJS template as a response
 function sendResponseFile(req, res, file) {
-    res.sendFile(path.join(__dirname, 'responses', file));
+    // Render the template
+    res.render('main.ejs', {
+        page: 'signup',
+        css: JSON.parse(fs.readFileSync('templates/data/signup_css.json')),
+        scripts: JSON.parse(fs.readFileSync('templates/data/signup_scripts.json')),
+        response: file,
+    });
 }
 
 // Adds the new user's details to the DB file
@@ -54,7 +60,7 @@ function saveData(req, res, data) {
 
     // Validate the data (you can never trust the client)
     if(!validate(data)) {
-        sendResponseFile(req, res, 'invalid.html');
+        sendResponseFile(req, res, 'invalid');
         return;
     }
 
@@ -67,7 +73,7 @@ function saveData(req, res, data) {
 
     // Check if email is alreayd in DB, and send a 'failure' response if it is
     if(db.find(element => element.email == data.email)) {
-        sendResponseFile(req, res, 'duplicate.html');
+        sendResponseFile(req, res, 'duplicate');
         return;
     }
 
@@ -78,7 +84,7 @@ function saveData(req, res, data) {
     fs.writeFileSync(DB_FILE, JSON.stringify(db));
 
     // Send the success response
-    sendResponseFile(req, res, 'success.html');
+    sendResponseFile(req, res, 'success');
 }
 
 // Validate form input (trusting the client is generally unwise).

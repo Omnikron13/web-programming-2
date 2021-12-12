@@ -1,0 +1,36 @@
+<% var current = item => item == page ? 'aria-current="page" tabindex="0"' : 'href="' + item + '.html"' %>
+<details id="nav-container" open>
+    <summary></summary>
+    <nav role="navigation" aria-label="Main Navigation">
+        <ul class="menu">
+            <li>
+                <a <%- current('index') %>>Home</a>
+            </li>
+            <li>
+                <details class="dropdown">
+                    <summary><a>Chapters</a></summary>
+                    <ol class="submenu">
+                        <li>
+                            <a <%- current('chapter1') %>>The UK's changing climate</a>
+                        </li>
+                        <li>
+                            <a <%- current('chapter2') %>>Assessing UK climate risk</a>
+                        </li>
+                        <li>
+                            <a <%- current('chapter3') %>>The adaptation return</a>
+                        </li>
+                        <li>
+                            <a <%- current('chapter4') %>>Priorities for action</a>
+                        </li>
+                    </ol>
+                </details>
+            </li>
+            <li>
+                <a <%- current('team') %>>Team Info</a>
+            </li>
+            <li>
+                <a <%- current('signup') %>>Signup</a>
+            </li>
+        </ul>
+    </nav>
+</details>

@@ -72,6 +72,9 @@ function saveData(req, res, data) {
         return;
     }
 
+    // Pre-hash email to more easily check for duplicates later
+    data.emailHash = sha1(data.email + SALT);
+
     // Get the DB file as JSON
     var db = getDB();
 

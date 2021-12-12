@@ -49,6 +49,8 @@ if(email)
     });
 
 // Force a validation check when any fields are changed
-document.getElementById('signup').addEventListener('change', event => {
-    event.target.reportValidity();
-});
+var signup = document.getElementById('signup');
+if(signup)
+    signup.addEventListener('change', event => {
+        event.target.reportValidity();
+    });

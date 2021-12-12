@@ -90,7 +90,7 @@ function saveData(req, res, data) {
     // Get the DB file as JSON
     var db = getDB();
 
-    // Check if email is alreayd in DB, and send a 'failure' response if it is
+    // Check if email is already in DB, and send a 'failure' response if it is
     if(db.find(element => element.email == data.email)) {
         sendResponse(req, res, {
             type: 'duplicate',

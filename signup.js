@@ -2,7 +2,11 @@
 // user informing them of success or failure.
 
 // Import modules
+const fs   = require('fs');
 const path = require('path');
+
+// Actual constants
+const DB_FILE = 'database.json';
 
 // Exposed API
 module.exports = {
@@ -11,18 +15,40 @@ module.exports = {
         // Log submission
         console.debug('Processing POST request to signup.html:');
 
-        // Remove the useless submit data from the POST
-        delete req.body.submit;
-
         // Log details of submission
         console.debug(req.body);
 
-        // TODO: move success out to after data saved successfully
-        sendResponseFile(req, res, 'success.html');
+        // Save to the DB
+        saveData(req, res, req.body);
     }
 };
 
 // Sends out a full static HTML file as a response
 function sendResponseFile(req, res, file) {
     res.sendFile(path.join(__dirname, 'responses', file));
+}
+
+// Adds the new user's details to the DB file
+function saveData(req, res, data) {
+    // Clean data for saving
+    delete data.submit;
+    data.email = data.email.toLowerCase();
+
+    // Create empty DB file if it doesn't exist
+    if(!fs.existsSync(DB_FILE))
+        fs.writeFileSync(DB_FILE, '[]');
+
+    // Read the DB file and convert to JSON
+    var db = JSON.parse(fs.readFileSync(DB_FILE));
+
+    // TODO: Check for duplicate
+
+    // Append the new data
+    db.push(data);
+
+    // Write the DB back to disk
+    fs.writeFileSync(DB_FILE, JSON.stringify(db));
+
+    // Send the success response
+    sendResponseFile(req, res, 'success.html');
 }

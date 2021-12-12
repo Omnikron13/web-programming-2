@@ -12,7 +12,9 @@ const signup  = require('./signup');
 // Initialise express
 const app = express();
 
+// Process POST input from form submission and JS fetch
 app.use(express.urlencoded({extended:true}));
+app.use(express.json());
 
 // Render with EJS
 app.set('view engine', 'ejs');

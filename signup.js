@@ -99,6 +99,4 @@ function validate(data) {
 const sha1hash = crypto.createHash('sha1');
 function sha1(data) {
     return crypto.createHash('sha1').update(data).digest('utf8');
-    sha1hash.update(data);
-    return sha1hash.digest('utf8');
 }

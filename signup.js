@@ -35,6 +35,8 @@ function saveData(req, res, data) {
     // Clean data for saving
     delete data.submit;
     data.email = data.email.toLowerCase();
+    data.firstName = data.firstName.trim();
+    data.lastName = data.lastName.trim();
 
     // Create empty DB file if it doesn't exist
     if(!fs.existsSync(DB_FILE))

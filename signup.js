@@ -11,6 +11,8 @@ const crypto = require('crypto');
 const DB_FILE = 'database.json';
 // Email regex from regular-expressions.info
 const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+// 128 bit salt
+const SALT = 'PTK3syLmZx45KK7IIUHZbQ';
 
 // Exposed API
 module.exports = {
@@ -24,7 +26,14 @@ module.exports = {
 
         // Save to the DB
         saveData(req, res, req.body);
-    }
+    },
+
+    // Return list of email addresses already in the DB file, served as salted
+    // hashes to preserve privacy.
+    getHashes: function() {
+        var db = JSON.parse(fs.readFileSync(DB_FILE));
+        return db.map(entry => sha1(entry.email + SALT));
+    },
 };
 
 // Sends out a full static HTML file as a response

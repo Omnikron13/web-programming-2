@@ -12,7 +12,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
     <% css.forEach(function(name) { %>
-        <%- include('partials/cssTag', {name: name}) %>
+    <%-    include('partials/cssTag', {name: name}) %>
     <% }); %>
 </head>
 <body>
@@ -35,7 +35,7 @@
     </footer>
 
     <% scripts.forEach(function(name) { %>
-        <%- include('partials/scriptTag', {name: name}) %>
+    <%-    include('partials/scriptTag', {name: name}) %>
     <% }); %>
 </body>
 </html>

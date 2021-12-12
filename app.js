@@ -68,3 +68,12 @@ app.listen(PORT, (error) => {
     // Log successful startup
     console.log("Listening on port " + PORT);
 });
+
+// Load an array of resource file names to be inserted into the templates
+function getResources(page, type) {
+    // Where to find a JSON file holding an array of page-specific CSS/JS file names
+    var dataFile = path.join(__dirname, 'templates', 'data', page + '_' + type + '.json');
+
+    // Read & return CSS/JS file lists
+    return fs.existsSync(dataFile) ? JSON.parse(fs.readFileSync(dataFile)) : [];
+}

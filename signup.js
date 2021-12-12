@@ -4,6 +4,7 @@
 // Import modules
 const fs   = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 // Actual constants
 // 'Database' file
@@ -83,4 +84,12 @@ function validate(data) {
         return false;
 
     return true;
+}
+
+// Returns a UTF-8 encoded SHA-1 hash of a given string
+const sha1hash = crypto.createHash('sha1');
+function sha1(data) {
+    return crypto.createHash('sha1').update(data).digest('utf8');
+    sha1hash.update(data);
+    return sha1hash.digest('utf8');
 }

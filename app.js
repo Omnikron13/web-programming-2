@@ -25,6 +25,9 @@ app.set('views', 'templates');
 // Serve anything found in the public dir statically by default
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Redirect root to the index via the primary route
+app.get('/', (req, res) => res.redirect('/index.html'));
+
 // Serve any HTML file that isn't static as an EJS template
 app.get('/*.html', (req, res) => {
     // Name of the page (without extention)

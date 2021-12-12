@@ -41,6 +41,12 @@ app.get('/*.html', (req, res) => {
     cssFiles = cssFiles.concat(getResources(page, 'css'));
     scriptFiles = scriptFiles.concat(getResources(page, 'scripts'));
 
+    // Load shared chapters resources lists
+    if(page.startsWith('chapters')) {
+        cssFiles = cssFiles.concat(getResources('chapters', 'css'));
+        scriptFiles = scriptFiles.concat(getResources('chapters', 'scripts'));
+    }
+
     // Render the template
     res.render('main.ejs', {
         page: page,

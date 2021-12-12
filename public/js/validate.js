@@ -1,8 +1,5 @@
 // This script enhances validation of the signup form on the client side
 
-// 128 bit salt
-const SALT = 'PTK3syLmZx45KK7IIUHZbQ';
-
 // Treat whitespace as blank for firstName & lastName
 document.querySelectorAll('#firstName, #lastName')
     .forEach(element => {
@@ -14,32 +11,25 @@ document.querySelectorAll('#firstName, #lastName')
         })
     });
 
-
-// Check if email address is already in DB file
-// TODO: rework this so the client sends a hash to the server and gets a response, for scaling
-const email = document.getElementById('email');
-// Only continue if email was found - will be on a response page with no form otherwise
-if(email) {
-    // Placeholder for hash list
-    let invalidEmails = [];
-    // Download hash list
-    fetch('emailhashes')
-        .then(res => res.json())
-        .then(hashes => invalidEmails = hashes);
-    // Needed to encode/decode strings to ArrayBuffers for the hashing function
-    const encoder = new TextEncoder();
-    const decoder = new TextDecoder();
-    // Check validity whenever email is changed
+// Check for email duplicates when email is changed
+var email = document.getElementById('email');
+if(email)
     email.addEventListener('change', event => {
-        // Hash the entered email
-        crypto.subtle.digest('SHA-1', encoder.encode(email.value.toLowerCase() + SALT))
-            // TODO: cleaner way of handling the async
-            .then(buffer => {
-                // Mark entered email as valid or invalid
-                if(invalidEmails.includes(decoder.decode(buffer)))
-                    email.setCustomValidity('Email address is already signed up for updates.');
-                else
-                    email.setCustomValidity('');
+        // TODO: return early if it doesn't validate anyway
+
+        var req = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email: email.value,
+            }),
+        };
+
+        fetch('duplicateEmail', req)
+            .then(res => res.json())
+            .then(duplicate => {
+                event.target.setCustomValidity(duplicate ? 'Email address is already signed up for updates.' : '')
             });
     });
-}

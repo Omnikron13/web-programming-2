@@ -47,12 +47,6 @@ app.post('/signup.html', (req, res) => {
     signup.process(req, res);
 });
 
-// Return list of email addresses already in the DB file, served as salted
-// hashes to preserve privacy.
-app.get('/emailhashes', (req, res) => {
-    res.send(signup.getHashes());
-});
-
 // Check if an email is already in the database
 app.post('/duplicateEmail', (req, res) => {
     console.debug('duplicateEmail:', req.body);

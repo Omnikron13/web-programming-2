@@ -28,12 +28,6 @@ module.exports = {
         saveData(req, res, req.body);
     },
 
-    // Return list of email addresses already in the DB file, served as salted
-    // hashes to preserve privacy.
-    getHashes: function() {
-        return getDB().map(entry => sha1(entry.email + SALT));
-    },
-
     // Check if email is alreayd in DB file
     duplicateEmail: function(email) {
         return getDB().map(entry => entry.emailHash).includes(sha1(email.toLowerCase() + SALT));

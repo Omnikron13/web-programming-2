@@ -36,6 +36,13 @@ module.exports = {
     },
 };
 
+// Respond with JSON if requested via fetch(), otherwise send full template
+function sendResponse(req, res, data, jsonResponse) {
+    if(jsonResponse)
+        return res.send(data);
+    sendResponseFile(req, res, data.type);
+}
+
 // Sends out a full EJS template as a response
 function sendResponseFile(req, res, file) {
     // Render the template

@@ -7,6 +7,8 @@ const path = require('path');
 
 // Actual constants
 const DB_FILE = 'database.json';
+// Email regex from regular-expressions.info
+const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
 // Exposed API
 module.exports = {
@@ -38,6 +40,12 @@ function saveData(req, res, data) {
     data.firstName = data.firstName.trim();
     data.lastName = data.lastName.trim();
 
+    // Validate the data (you can never trust the client)
+    if(!validate(data)) {
+        sendResponseFile(req, res, 'invalid.html');
+        return;
+    }
+
     // Create empty DB file if it doesn't exist
     if(!fs.existsSync(DB_FILE))
         fs.writeFileSync(DB_FILE, '[]');
@@ -59,4 +67,18 @@ function saveData(req, res, data) {
 
     // Send the success response
     sendResponseFile(req, res, 'success.html');
+}
+
+// Validate form input (trusting the client is generally unwise).
+// Note that it is _not_ sanitised here.
+function validate(data) {
+    // Check if names were just whitespace (attempts to bypass required)
+    if(!data.firstName || !data.lastName)
+        return false;
+
+    // Sanity check the email address (trying to truly validate email addresses is usually unwise)
+    if(!EMAIL_REGEX.test(data.email))
+        return false;
+
+    return true;
 }

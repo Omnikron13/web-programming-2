@@ -18,25 +18,28 @@ document.querySelectorAll('#firstName, #lastName')
 // Check if email address is already in DB file
 // TODO: rework this so the client sends a hash to the server and gets a response, for scaling
 const email = document.getElementById('email');
-// Placeholder for hash list
-let invalidEmails = [];
-// Download hash list
-fetch('emailhashes')
-    .then(res => res.json())
-    .then(hashes => invalidEmails = hashes);
-// Needed to encode/decode strings to ArrayBuffers for the hashing function
-const encoder = new TextEncoder();
-const decoder = new TextDecoder();
-// Check validity whenever email is changed
-email.addEventListener('change', event => {
-    // Hash the entered email
-    crypto.subtle.digest('SHA-1', encoder.encode(email.value.toLowerCase() + SALT))
-        // TODO: cleaner way of handling the async
-        .then(buffer => {
-            // Mark entered email as valid or invalid
-            if(invalidEmails.includes(decoder.decode(buffer)))
-                email.setCustomValidity('Email address is already signed up for updates.');
-            else
-                email.setCustomValidity('');
-        });
-});
+// Only continue if email was found - will be on a response page with no form otherwise
+if(email) {
+    // Placeholder for hash list
+    let invalidEmails = [];
+    // Download hash list
+    fetch('emailhashes')
+        .then(res => res.json())
+        .then(hashes => invalidEmails = hashes);
+    // Needed to encode/decode strings to ArrayBuffers for the hashing function
+    const encoder = new TextEncoder();
+    const decoder = new TextDecoder();
+    // Check validity whenever email is changed
+    email.addEventListener('change', event => {
+        // Hash the entered email
+        crypto.subtle.digest('SHA-1', encoder.encode(email.value.toLowerCase() + SALT))
+            // TODO: cleaner way of handling the async
+            .then(buffer => {
+                // Mark entered email as valid or invalid
+                if(invalidEmails.includes(decoder.decode(buffer)))
+                    email.setCustomValidity('Email address is already signed up for updates.');
+                else
+                    email.setCustomValidity('');
+            });
+    });
+}

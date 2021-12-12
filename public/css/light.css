@@ -23,9 +23,14 @@ body {
 
 /* Colour navigation menu & submenu */
 .menu > li, .submenu > li {
-    background-color: var(--light-bg);
     border: 1px solid var(--dark-bg);
     cursor: pointer;
+}
+.menu > li {
+    background-color: var(--light-bg);
+}
+.submenu > li {
+    background-color: var(--mid-dark-bg);
 }
 
 /* Some distinction in the chade of the dropwn to make it

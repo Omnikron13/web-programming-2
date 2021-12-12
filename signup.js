@@ -71,6 +71,8 @@ function saveData(req, res, data) {
     if(!validate(data)) {
         sendResponse(req, res, {
             type: 'invalid',
+            header: 'Failure',
+            message: 'Invalid input (you must enter first name, last name, and a valid email address).',
         }, jsonResponse);
         return;
     }
@@ -86,6 +88,8 @@ function saveData(req, res, data) {
     if(db.find(element => element.email == data.email)) {
         sendResponse(req, res, {
             type: 'duplicate',
+            header: 'Failure',
+            message: 'That email address is already signed up for updates.',
         }, jsonResponse);
         return;
     }
@@ -99,6 +103,8 @@ function saveData(req, res, data) {
     // Send the success response
     sendResponse(req, res, {
         type: 'success',
+        header: 'Success!',
+        message: 'You will now receive email updates.',
     }, jsonResponse);
 }
 

@@ -49,6 +49,10 @@ function sendResponseFile(req, res, file) {
 
 // Adds the new user's details to the DB file
 function saveData(req, res, data) {
+    // If there is no 'submit' in the POST request, it must have been sent by
+    // JS, so the response should be JSON instead of HTML.
+    var jsonResponse = !('submit' in data);
+
     // Clean data for saving
     delete data.submit;
     data.email = data.email.toLowerCase();
@@ -58,7 +62,9 @@ function saveData(req, res, data) {
 
     // Validate the data (you can never trust the client)
     if(!validate(data)) {
-        sendResponseFile(req, res, 'invalid');
+        sendResponse(req, res, {
+            type: 'invalid',
+        }, jsonResponse);
         return;
     }
 
@@ -71,7 +77,9 @@ function saveData(req, res, data) {
 
     // Check if email is alreayd in DB, and send a 'failure' response if it is
     if(db.find(element => element.email == data.email)) {
-        sendResponseFile(req, res, 'duplicate');
+        sendResponse(req, res, {
+            type: 'duplicate',
+        }, jsonResponse);
         return;
     }
 
@@ -82,7 +90,9 @@ function saveData(req, res, data) {
     fs.writeFileSync(DB_FILE, JSON.stringify(db));
 
     // Send the success response
-    sendResponseFile(req, res, 'success');
+    sendResponse(req, res, {
+        type: 'success',
+    }, jsonResponse);
 }
 
 // Validate form input (trusting the client is generally unwise).

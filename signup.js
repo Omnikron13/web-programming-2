@@ -30,6 +30,8 @@ function sendResponseFile(req, res, file) {
 
 // Adds the new user's details to the DB file
 function saveData(req, res, data) {
+    // TODO: server side validation
+
     // Clean data for saving
     delete data.submit;
     data.email = data.email.toLowerCase();

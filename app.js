@@ -20,6 +20,12 @@ app.post('/signup.html', (req, res) => {
     signup.process(req, res);
 });
 
+// Return list of email addresses already in the DB file, served as salted
+// hashes to preserve privacy.
+app.get('/emailhashes', (req, res) => {
+    res.send(signup.getHashes());
+});
+
 // Start the server
 app.listen(PORT, (error) => {
     // Log any errors

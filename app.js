@@ -33,15 +33,15 @@ app.get('/*.html', (req, res) => {
     // Name of the page (without extention)
     var page = req.params[0];
 
-    // Where to find a JSON file holding an array of page-specific CSS/JS file names
-    var cssFile = path.join(__dirname, 'templates', 'data', page + '_css.json');
-    var scriptsFile = path.join(__dirname, 'templates', 'data', page + '_scripts.json');
+    // Load page specific resources lists
+    var cssFiles = getResources(page, 'css');
+    var scriptFiles = getResources(page, 'scripts');
 
     // Render the template
     res.render('main.ejs', {
         page: page,
-        css: fs.existsSync(cssFile) ? JSON.parse(fs.readFileSync(cssFile)) : [],
-        scripts: fs.existsSync(scriptsFile) ? JSON.parse(fs.readFileSync(scriptsFile)) : [],
+        css: cssFiles,
+        scripts: scriptFiles,
     });
 });
 

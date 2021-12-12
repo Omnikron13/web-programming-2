@@ -1,0 +1,6 @@
+<%#  Render out the form or a response if one is present  %>
+<% if(typeof response === 'undefined') { %>
+    <%- include('../partials/signup/form') %>
+<% } else { %>
+    <%- include('../partials/signup/' + response + '_response'); %>
+<% } %>

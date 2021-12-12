@@ -6,6 +6,7 @@ const fs   = require('fs');
 const path = require('path');
 
 // Actual constants
+// 'Database' file
 const DB_FILE = 'database.json';
 // Email regex from regular-expressions.info
 const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;

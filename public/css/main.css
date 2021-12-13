@@ -55,6 +55,7 @@ p {
 /* Collapsible nav menu container for mobile only */
 #nav-container > summary {
     display: none;
+    list-style-type: none;
 }
 
 /* Main Navigation menu */
@@ -114,15 +115,12 @@ details.dropdown > summary + * {
         display: list-item;
 
         /* Style the icon as a burger menu */
-        list-style-type: "☰";
-        font-size: 2rem;
         text-align: right;
         padding-right: 0.9rem;
     }
 
     /* Switch to close icon when menu is open */
     #nav-container[open] > summary {
-        list-style-type: "✖";
     }
 
     /* Make the menu full width and stacked vertically */

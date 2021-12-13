@@ -77,6 +77,26 @@ main h2, main h3, main p, label {
     color: var(--dark-fg);
 }
 
+/* Form styling */
+fieldset {
+    border: 2px solid var(--lighter-bg);
+    border-radius: 0.3rem;
+}
+input, textarea {
+    background-color: #c1deaf;
+    color: #172617;
+    border: 1px solid var(--light-bg);
+    border-radius: 0.2rem;
+    padding: 0.2rem 0.3rem;
+}
+::placeholder {
+    color: #6d9044;
+}
+#submit {
+    background-color: var(--lighter-bg);
+    color: var(--dark-fg);<F11>
+}
+
 /* Footer text */
 #footer p, #footer a {
     color: var(--light-fg);

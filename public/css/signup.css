@@ -32,6 +32,28 @@ textarea {
     height: 5rem;
 }
 
+/* Indicate required fields */
+label[for=firstName]::after,
+label[for=lastName]::after,
+label[for=email]::after {
+    content: '*';
+    font-size: 0.7rem;
+    position: absolute;
+    width: 0.5rem;
+}
+label {
+    margin-right: 0.25rem;
+}
+
+/* Footnote noting required field mark */
+fieldset > footer {
+    grid-column: 2;
+    font-size: 0.7rem;
+}
+fieldset > footer > p {
+    margin: 0;
+}
+
 /* Mobile (portrait) or other narrow screen styles */
 @media screen and (max-width: 500px) {
     fieldset {

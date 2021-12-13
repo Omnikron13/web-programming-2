@@ -2,6 +2,9 @@
 *.pdf
 database.json
 
+# Local files
+local/
+
 # Logs
 logs
 *.log

@@ -1,0 +1,18 @@
+/* Change alignment and bump the size a touch so it stands out more` */
+main h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-family: sans-serif;
+}
+
+/* Fix list indents */
+main ul, main ol {
+    padding-left: 2rem;
+}
+main ol {
+    list-style: decimal;
+}
+/* Give the items a little veritcal breathing room */
+main li {
+    margin: 0.3rem 0;
+}

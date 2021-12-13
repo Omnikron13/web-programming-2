@@ -71,6 +71,12 @@ body {
     }
 }
 
+/* Main body styles */
+/*  */
+main h2, main h3, main p, label {
+    color: var(--dark-fg);
+}
+
 /* Footer text */
 #footer p, #footer a {
     color: var(--light-fg);

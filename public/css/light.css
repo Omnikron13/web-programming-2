@@ -25,7 +25,6 @@ body {
 #footer {
     background: linear-gradient(var(--dark-bg), var(--dark-fg));
 }
-
 #header nav {
     background-color: var(--light-bg);
     background: linear-gradient(90deg, var(--mid-dark-bg) 0%, var(--light-bg) 20%, var(--light-bg) 80%, var(--mid-dark-bg) 100%);

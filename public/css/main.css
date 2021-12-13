@@ -20,6 +20,13 @@ h1, h2, h3, p {
     margin: 0.75rem 0;
 }
 
+/* Change alignment and bump the size a touch so it stands out more` */
+main h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-family: sans-serif;
+}
+
 /* Justify paragraphs by default to make pages look cleaner */
 p {
     text-align: justify;

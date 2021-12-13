@@ -14,9 +14,11 @@ body {
     background-color: var(--main-bg);
 }
 
+/* Fallback boring static bg colour */
 #header, #footer {
     background-color: var(--dark-bg);
 }
+/* Gradients to give the page some depth */
 #header {
     background: linear-gradient(var(--dark-bg), var(--mid-dark-bg));
 }

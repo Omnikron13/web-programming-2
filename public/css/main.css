@@ -121,6 +121,14 @@ details.dropdown > summary + * {
 
     /* Switch to close icon when menu is open */
     #nav-container[open] > summary {
+        opacity: 0.7;
+    }
+
+    #burger-menu {
+        margin-bottom: 0.2rem;
+        margin-top: 0.6rem;
+        width: 2rem;
+        height: 2rem;
     }
 
     /* Make the menu full width and stacked vertically */

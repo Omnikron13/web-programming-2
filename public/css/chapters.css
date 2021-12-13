@@ -9,6 +9,9 @@ main h2 {
 main ul, main ol {
     padding-left: 2rem;
 }
+main ul {
+    list-style-image: url('../img/diamond.svg');
+}
 main ol {
     list-style: decimal;
 }

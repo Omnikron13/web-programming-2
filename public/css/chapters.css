@@ -19,3 +19,8 @@ main ol {
 main li {
     margin: 0.3rem 0;
 }
+
+/* Content from the report that is cut from the summary */
+.cut {
+    display: hidden;
+}
